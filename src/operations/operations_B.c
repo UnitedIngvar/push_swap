@@ -1,4 +1,3 @@
-#include "push_swap.h"
 #include "operations.h"
 
 void stack_sb(t_stack *stack)
