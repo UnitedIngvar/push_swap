@@ -4,7 +4,7 @@
 typedef struct s_scored
 {
 	ssize_t value;
-}
+}	t_scored;
 
 typedef struct s_stack
 {

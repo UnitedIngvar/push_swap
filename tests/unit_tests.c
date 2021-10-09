@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "push_swap.h"
+#include "../src/push_swap.h"
 
 t_stack *create_stack()
 {
@@ -20,6 +20,7 @@ t_stack *create_stack()
 	stack->array[7] = 7;
 	stack->array[8] = 8;
 	stack->array[9] = 9;
+	stack->head = 9;
 	return stack;
 }
 
@@ -46,6 +47,8 @@ int unit_test_rb()
 	printf("%i\n", old_stack->array[6] == stack->array[7]);
 	printf("%i\n", old_stack->array[7] == stack->array[8]);
 	printf("%i\n", old_stack->array[8] == stack->array[9]);
+	printf("%i\n", old_stack->head == stack->array[0]);
+	printf("%i\n", old_stack->array[8] == stack->head);
 }
 
 int unit_test_sb()
@@ -62,7 +65,9 @@ int unit_test_sb()
 
 	//Assert
 	printf("%i\n", stack->array[stack->top_index] == old_stack->array[old_stack->top_index - 1]);
+	printf("%i\n", stack->head == old_stack->array[old_stack->top_index - 1]);
 	printf("%i\n", stack->array[stack->top_index - 1] == old_stack->array[old_stack->top_index]);
+	printf("%i\n", stack->array[stack->top_index - 1] == old_stack->head);
 }
 
 int unit_test_rrb()
@@ -79,7 +84,9 @@ int unit_test_rrb()
 
 	//Assert
 	printf("%i\n", old_stack->array[0] == stack->array[9]);
+	printf("%i\n", old_stack->array[0] == stack->head);
 	printf("%i\n", old_stack->array[9] == stack->array[8]);
+	printf("%i\n", old_stack->head == stack->array[8]);
 	printf("%i\n", old_stack->array[8] == stack->array[7]);
 	printf("%i\n", old_stack->array[7] == stack->array[6]);
 	printf("%i\n", old_stack->array[6] == stack->array[5]);
@@ -112,7 +119,9 @@ int unit_test_pb()
 	//Assert
 	printf("%i\n", stack_a->top_index == old_stack_a->top_index - 1);
 	printf("%i\n", stack_a->array[stack_a->top_index] == old_stack_a->array[old_stack_a->top_index - 1]);
+	printf("%i\n", stack_a->head == old_stack_a->array[old_stack_a->top_index - 1]);
 	printf("%i\n", stack_b->array[stack_b->top_index] == old_stack_a->array[old_stack_a->top_index]);
+	printf("%i\n", stack_b->head == old_stack_a->array[old_stack_a->top_index]);
 	printf("%i\n", stack_b->top_index == old_stack_b->top_index + 1);
 }
 
