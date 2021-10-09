@@ -5,8 +5,11 @@ void stack_push(t_stack *stack_from, t_stack *stack_to)
 	if (stack_from->top_index == -1 || stack_from->length == 0)
 		return;
 	stack_to->top_index++;
+	stack_to->head = stack_from->head;
 	stack_to->array[stack_to->top_index] = stack_from->array[stack_from->top_index];
 	stack_from->top_index--;
+	if (stack->top_index > -1)
+		stack_from->head = stack_from->array[stack_from->top_index];
 }
 
 void stack_swap(t_stack *stack)

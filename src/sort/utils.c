@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdio.h>
 
 static ssize_t	*copy_array(ssize_t *arr, long len)
 {
@@ -25,12 +26,15 @@ bool	is_sorted(t_stack *stack)
 {
 	int	i;
 
-	i = 0;
-	while (i < stack->top_index)
+	i = stack->top_index;
+	printf("is_sorted: top index of stack = %zi\n", stack->top_index);
+	printf("is_sorted: top of stack = %zi\n", stack->array[i]);
+	while (i > 0)
 	{
-		if (stack->array[i] > stack->array[i + 1])
+		printf("operation: %zi > %zi\n", stack->array[i], stack->array[i - 1]);
+		if (stack->array[i] > stack->array[i - 1])
 			return (false);
-		i++;
+		i--;
 	}
 	return (true);
 }

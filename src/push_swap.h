@@ -1,11 +1,17 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+typedef struct s_scored
+{
+	ssize_t value;
+}
+
 typedef struct s_stack
 {
-	ssize_t length;
-	ssize_t top_index;
-	ssize_t *array;
+	ssize_t	length;
+	ssize_t	head;
+	ssize_t	top_index;
+	ssize_t	*array;
 }	t_stack;
 
 void stack_sb(t_stack *stack);
