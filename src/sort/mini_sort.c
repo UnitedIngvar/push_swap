@@ -2,17 +2,17 @@
 #include <stdio.h>
 #include <limits.h>
 
-
 void	print_stack(t_stack *stack)
 {
-	int i;
+	int	i;
 
 	i = stack->top_index;
 	while (i >= 0)
 	{
-		printf("%zi	", stack->array[i--]);
+		printf("%zi	", stack->array[i--].value);
 	}
 	printf("\n");
+	sleep(2);
 }
 
 static int	sort_two_nums(t_stack *stack)
@@ -21,8 +21,10 @@ static int	sort_two_nums(t_stack *stack)
 		return (1);
 	if (stack->top_index != 1)
 		return (1);
-	if (stack->array[0] < stack->array[1])
-			stack_rb(stack);
+	if (stack->array[0].value < stack->array[1].value)
+		stack_rb(stack);
+	return (1);
+	print_stack(stack);
 }
 
 static int	sort_three_nums_asc(t_stack *stack)
@@ -32,20 +34,19 @@ static int	sort_three_nums_asc(t_stack *stack)
 	if (stack->top_index != 2)
 		return (-1);
 	sorted_array = get_sorted_array(stack->array, 3);
-	int i = 0;
-	if (stack->array[2] == sorted_array[0])
-		if (stack->array[1] == sorted_array[2])
+	if (stack->array[2].value == sorted_array[0])
+		if (stack->array[1].value == sorted_array[2])
 			stack_sa(stack);
-	if (stack->array[2] == sorted_array[2])
+	if (stack->array[2].value == sorted_array[2])
 	{
-		if (stack->array[1] == sorted_array[0])
+		if (stack->array[1].value == sorted_array[0])
 			stack_ra(stack);
 		else
 			stack_sa(stack);
 	}
-	if (stack->array[2] == sorted_array[1])
+	if (stack->array[2].value == sorted_array[1])
 	{
-		if (stack->array[1] == sorted_array[2])
+		if (stack->array[1].value == sorted_array[2])
 			stack_rra(stack);
 		else
 			stack_sa(stack);
@@ -62,22 +63,23 @@ static void	push_rotate(t_stack *stack_b, t_stack *stack_a)
 static int	merge_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	ssize_t	beginning;
-	bool	itered;
+	t_bool	itered;
 
-	itered = false;
-	while(stack_b->top_index >= 0)
+	itered = FALSE;
+	beginning = stack_a->head.value;
+	while (stack_b->top_index >= 0)
 	{
-		if (stack_b->array[stack_b->top_index] < stack_a->array[stack_a->top_index])
+		if (stack_b->head.value < stack_a->head.value)
 		{
-			if (stack_b->array[stack_b->top_index] < beginning)
-				beginning = stack_b->array[stack_b->top_index];
+			if (stack_b->head.value < beginning)
+				beginning = stack_b->head.value;
 			push_rotate(stack_b, stack_a);
 		}
 		else
 			stack_ra(stack_a);
-		if (beginning == stack_a->array[stack_a->top_index] && itered)
-			break;
-		itered = true;
+		if (beginning == stack_a->head.value && itered)
+			break ;
+		itered = TRUE;
 	}
 	while (stack_b->top_index > -1)
 		push_rotate(stack_b, stack_a);
@@ -102,15 +104,15 @@ int	mini_sort(t_stack *stack_a, t_stack *stack_b)
 int	main(void)
 {
 	t_stack	*stack_a;
-	t_stack *stack_b;
+	t_stack	*stack_b;
 
 	stack_a = malloc(sizeof(t_stack));
-	stack_a->array = malloc(sizeof(ssize_t) * 5);
-	stack_a->array[0] = 5248;
-	stack_a->array[1] = 346263;
-	stack_a->array[2] = -45634;
-	stack_a->array[3] = INT_MAX;
-	stack_a->array[4] = INT_MIN;
+	stack_a->array = malloc(sizeof(t_scored) * 5);
+	stack_a->array[0].value = 4636;
+	stack_a->array[1].value = -346263;
+	stack_a->array[2].value = -45634;
+	stack_a->array[3].value = 5438;
+	stack_a->array[4].value = 876;
 	stack_a->top_index = 4;
 	stack_a->length = 5;
 
@@ -119,7 +121,7 @@ int	main(void)
 	stack_b->top_index = -1;
 	stack_b->length = 5;
 
-	printf("%zi	%zi	%zi	%zi	%zi\n", stack_a->array[4], stack_a->array[3], stack_a->array[2], stack_a->array[1], stack_a->array[0]);
+	print_stack(stack_a);
 	mini_sort(stack_a, stack_b);
-	printf("%zi	%zi	%zi	%zi	%zi\n", stack_a->array[4], stack_a->array[3], stack_a->array[2], stack_a->array[1], stack_a->array[0]);
+	print_stack(stack_a);
 }

@@ -1,33 +1,34 @@
 #include "../push_swap.h"
 
-void stack_push(t_stack *stack_from, t_stack *stack_to)
+void	stack_push(t_stack *stack_from, t_stack *stack_to)
 {
 	if (stack_from->top_index == -1 || stack_from->length == 0)
-		return;
+		return ;
 	stack_to->top_index++;
 	stack_to->head = stack_from->head;
-	stack_to->array[stack_to->top_index] = stack_from->array[stack_from->top_index];
+	stack_to->array[stack_to->top_index] = \
+		stack_from->array[stack_from->top_index];
 	stack_from->top_index--;
 	if (stack_from->top_index > -1)
 		stack_from->head = stack_from->array[stack_from->top_index];
 }
 
-void stack_swap(t_stack *stack)
+void	stack_swap(t_stack *stack)
 {
-	int temp;
+	t_scored	temp;
 
 	if (stack->top_index == -1 || stack->length == 0)
-		return;
+		return ;
 	temp = stack->head;
 	stack->array[stack->top_index] = stack->array[stack->top_index - 1];
 	stack->head = stack->array[stack->top_index - 1];
 	stack->array[stack->top_index - 1] = temp;
 }
 
-void stack_rotate(t_stack *stack)
+void	stack_rotate(t_stack *stack)
 {
-	int i_count;
-	int top_num;
+	int			i_count;
+	t_scored	top_num;
 
 	i_count = stack->top_index;
 	top_num = stack->array[i_count];
@@ -40,10 +41,10 @@ void stack_rotate(t_stack *stack)
 	stack->head = stack->array[stack->top_index];
 }
 
-void stack_rotate_reverse(t_stack *stack)
+void	stack_rotate_reverse(t_stack *stack)
 {
-	int	i_count;
-	int	bottom_num;
+	int			i_count;
+	t_scored	bottom_num;
 
 	if (stack->top_index <= 0 || stack->length == 0)
 		return ;
