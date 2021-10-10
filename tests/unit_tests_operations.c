@@ -101,33 +101,10 @@ int unit_test_pb()
 	printf("%i\n", stack_b->top_index == old_stack_b->top_index + 1);
 }
 
-void	value_change(t_stack *stack, ssize_t value, int index)
-{
-	stack->array[index].value = value;
-}
-
-unit_test_value_change()
-{
-	//Arrange
-	t_stack	*stack = create_stack();
-	ssize_t	value = 10;
-	int		index = 5;
-
-	//Act
-	printf("\ntesting value change: \n");
-	value_change(stack, value, index);
-	printf("%i\n", stack->array[index].value == value);
-	value = 6;
-	index = 8;
-	value_change(stack, value, index);
-	printf("%i\n", stack->array[index].value == value);
-}
-
 int	main(void)
 {
 	unit_test_sb();
 	unit_test_pb();
 	unit_test_rb();
 	unit_test_rrb();
-	unit_test_value_change();
 }

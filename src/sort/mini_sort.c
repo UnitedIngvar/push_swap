@@ -2,19 +2,6 @@
 #include <stdio.h>
 #include <limits.h>
 
-void	print_stack(t_stack *stack)
-{
-	int	i;
-
-	i = stack->top_index;
-	while (i >= 0)
-	{
-		printf("%zi	", stack->array[i--].value);
-	}
-	printf("\n");
-	sleep(2);
-}
-
 static int	sort_two_nums(t_stack *stack)
 {
 	if (stack->top_index == 0)
