@@ -59,6 +59,30 @@ void	assign_scores(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+void	clear_scores(t_stack *stack_a, t_stack *stack_b)
+{
+	ssize_t index;
+
+	index = stack_a->top_index;
+	while (index >= 0)
+	{
+		stack_a->array[index].is_reversed_a = FALSE;
+		stack_a->array[index].is_reversed_b = FALSE;
+		stack_a->array[index].score_b = 0;
+		stack_a->array[index].score_a = 0;
+		stack_a->array[index].score = 0;
+	}
+	index = stack_b->top_index;
+	while (index >= 0)
+	{
+		stack_b->array[index].is_reversed_a = FALSE;
+		stack_b->array[index].is_reversed_b = FALSE;
+		stack_b->array[index].score_b = 0;
+		stack_b->array[index].score_a = 0;
+		stack_b->array[index].score = 0;
+	}
+}
+
 // int main(void)
 // {
 // 	t_stack	*stack_a = malloc(sizeof(t_stack));

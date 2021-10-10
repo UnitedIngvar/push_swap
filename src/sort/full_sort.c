@@ -17,6 +17,61 @@ void	print_stack(t_stack *stack)
 	sleep(1);
 }
 
+static int	execute_push(t_stack *stack_a, t_stack *stack_b, ssize_t fstst_i)
+{
+	while (stack_b->array[fstst_i].score > 0)
+	{
+		if (stack_b->array[fstst_i].score_a > 0 && \
+			stack_b->array[fstst_i].score_b > 0)
+		{
+			if (!stack_b->array[fstst_i].is_reversed_a && \
+				!stack_b->array[fstst_i].is_reversed_b)
+			{
+				stack_rr(stack_a, stack_b);
+				stack_b->array[fstst_i].score_b--;
+				stack_b->array[fstst_i].score_a--;
+			}
+			else if (stack_b->array[fstst_i].is_reversed_a && \
+				stack_b->array[fstst_i].is_reversed_b)
+			{
+				stack_rrr(stack_a, stack_b);
+				stack_b->array[fstst_i].score_b--;
+				stack_b->array[fstst_i].score_a--;
+			}
+		}
+		else
+		{
+			if (stack_b->array[fstst_i].score_b > 0)
+			{
+				if (!stack_b->array[fstst_i].is_reversed_b)
+					stack_rb(stack_b);
+				else
+					stack_rrb(stack_b);
+				stack_b->array[fstst_i].score_b--;
+			}
+			if (stack_)
+		}
+	}
+}
+
+static int	push_to_a(t_stack *stack_a, t_stack *stack_b)
+{
+	ssize_t	fastest_index;
+	ssize_t	index;
+	ssize_t	instruction
+
+	fastest_index = 0;
+	index = stack_b->top_index;
+	while (index >= 0)
+		if (stack_b->array[index].score < stack_b->array[fastest_index].score)
+			fastest_index = index;
+	while (stack_b->array[fastest_index].score_a > 0 && \
+		stack_b->array[fastest_index].score_b > 0)
+	{
+		stack_ra()
+	}
+}
+
 static int	push_to_b(t_stack *stack_a, t_stack *stack_b)
 {
 	t_specs	specials;
@@ -37,11 +92,11 @@ static int	push_to_b(t_stack *stack_a, t_stack *stack_b)
 		else
 			stack_ra(stack_a);
 	}
-	printf("After all:	\n");
-	printf("stack_a now:\n");
-	print_stack(stack_a);
-	printf("stack_b now:\n");
-	print_stack(stack_b);
+	// printf("After all:	\n");
+	// printf("stack_a now:\n");
+	// print_stack(stack_a);
+	// printf("stack_b now:\n");
+	// print_stack(stack_b);
 	return (1);
 }
 
@@ -49,31 +104,11 @@ int	full_sort(t_stack *stack_a, t_stack *stack_b)
 {
 
 	return (1);
-}
-
-int main(void)
-{
-	t_stack	*stack_a = malloc(sizeof(t_stack));
-	t_stack *stack_b = malloc(sizeof(t_stack));
-	int		arr_length = 10;
-
-	stack_b->array = malloc(sizeof(t_scored) * arr_length);
-	stack_a->array = malloc(sizeof(t_scored) * arr_length);
-	stack_a->length = arr_length;
-	stack_b->length = arr_length;
-	stack_a->top_index = arr_length - 1;
-	stack_b->top_index = -1;
-
-	stack_a->array[0].value = INT_MIN;
-	stack_a->array[1].value = 6436;
-	stack_a->array[2].value = -47;
-	stack_a->array[3].value = 8;
-	stack_a->array[4].value = 4;
-	stack_a->array[5].value = INT_MAX;
-	stack_a->array[6].value = 979;
-	stack_a->array[7].value = 77;
-	stack_a->array[8].value = 10;
-	stack_a->array[9].value = 6447;
-	stack_a->head = stack_a->array[9];
 	push_to_b(stack_a, stack_b);
+
+	while (stack_b->top_index > -1)
+	{
+		clear_scores(stack_a, stack_b);
+		assign_scores(stack_a, stack_b);
+	}
 }
