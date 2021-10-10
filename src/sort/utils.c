@@ -37,7 +37,7 @@ t_bool	is_sorted(const t_stack *stack)
 }
 
 //Passs array and its len to find min, max and mid
-t_specs	find_specs(const ssize_t *sorted_array, ssize_t len)
+t_specs	find_special_values(const ssize_t *sorted_array, ssize_t len)
 {
 	t_specs	specs;
 
@@ -63,6 +63,6 @@ t_specs	find_specs(const ssize_t *sorted_array, ssize_t len)
 // 	array[7] = 7;
 // 	array[8] = 8;
 // 	array[9] = 9;
-// 	t_specs specs = find_specs(array, arr_length);
+// 	t_specs specs = find_special_values(array, arr_length);
 // 	printf("min:	%zi\nmax:	%zi\nmid:	%zi", specs.min, specs.max, specs.mid);
 // }
