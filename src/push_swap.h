@@ -35,4 +35,8 @@ void	stack_pa(t_stack *stack_b, t_stack *stack_a);
 void	stack_ra(t_stack *stack);
 void	stack_rra(t_stack *stack);
 
+void	stack_ss(t_stack *stack_a, t_stack *stack_b);
+void	stack_rr(t_stack *stack_a, t_stack *stack_b);
+void	stack_rrr(t_stack *stack_a, t_stack *stack_b);
+
 #endif
