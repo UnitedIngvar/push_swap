@@ -152,7 +152,7 @@ void unit_test_scores_acami()
 	stack_b->array[6].value = 3;
 	stack_b->head = stack_b->array[6];
 
-	ssize_t index = stack_a->top_index;
+	int64_t index = stack_a->top_index;
 
 	printf("	__________SCORES___ACAMI_________");
 	printf("\n\n");

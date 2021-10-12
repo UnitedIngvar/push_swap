@@ -2,8 +2,8 @@
 
 static void	add_a_score(t_stack *stack_a, t_scored *elem)
 {
-	ssize_t	index;
-	ssize_t	score_add;
+	int64_t	index;
+	int64_t	score_add;
 
 	score_add = 1;
 	if (stack_a->head.value > elem->value && \
@@ -29,7 +29,7 @@ static void	add_a_score(t_stack *stack_a, t_scored *elem)
 	}
 }
 
-static void	add_b_score(t_stack *stack_b, ssize_t index, t_scored *elem)
+static void	add_b_score(t_stack *stack_b, int64_t index, t_scored *elem)
 {
 	if (index >= stack_b->top_index / 2)
 	{
@@ -45,7 +45,7 @@ static void	add_b_score(t_stack *stack_b, ssize_t index, t_scored *elem)
 
 void	assign_scores(t_stack *stack_a, t_stack *stack_b)
 {
-	ssize_t	el_index;
+	int64_t	el_index;
 
 	el_index = stack_b->top_index;
 	while (el_index >= 0)
@@ -61,7 +61,7 @@ void	assign_scores(t_stack *stack_a, t_stack *stack_b)
 
 void	clear_scores(t_stack *stack_a, t_stack *stack_b)
 {
-	ssize_t index;
+	int64_t index;
 
 	index = stack_a->top_index;
 	while (index >= 0)
@@ -110,7 +110,7 @@ void	clear_scores(t_stack *stack_a, t_stack *stack_b)
 // 	stack_b->array[7].value = -47;
 // 	stack_b->head = stack_b->array[7];
 
-// 	ssize_t index = stack_a->top_index;
+// 	int64_t index = stack_a->top_index;
 
 // 	assign_scores(stack_a, stack_b);
 // 	printf("stack A:	");

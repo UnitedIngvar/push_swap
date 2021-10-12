@@ -1,4 +1,4 @@
-mini_sort: gcc \operations\operations_A.c \operations\operations_common.c \operations\operations_B.c .\sort\mini_sort.c .\sort\qick_sort.c .\sort\sort.c .\sort\utils.c
+mini_sort: gcc \operations\operations_A.c \operations\operations_common.c \operations\operations_B.c .\sort\mini_sort.c .\sort\qick_sort.c .\sort\sort.c .\sort\sort_utils.c
 operations unit testing:
 	windws: gcc .\src\operations\operations_A.c .\src\operations\operations_common.c .\src\operations\operations_B.c .\tests\unit_tests_operations.c .\tests\unit_tests_common.c
 	Mac: gcc src/operations/operations_A.c src/operations/operations_common.c src/operations/operations_B.c tests/unit_tests_operations.c tests/unit_tests_common.c

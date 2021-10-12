@@ -16,7 +16,7 @@ static int	sort_two_nums(t_stack *stack)
 
 static int	sort_three_nums_asc(t_stack *stack)
 {
-	ssize_t	*sorted_array;
+	int64_t	*sorted_array;
 
 	if (stack->top_index != 2)
 		return (-1);
@@ -49,7 +49,7 @@ static void	push_rotate(t_stack *stack_b, t_stack *stack_a)
 
 static int	merge_stacks(t_stack *stack_a, t_stack *stack_b)
 {
-	ssize_t	beginning;
+	int64_t	beginning;
 	t_bool	itered;
 
 	itered = FALSE;

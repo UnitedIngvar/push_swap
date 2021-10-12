@@ -1,6 +1,6 @@
 #include "unit_tests.h"
 
-static void	value_change(t_stack *stack, ssize_t value, int index)
+static void	value_change(t_stack *stack, int64_t value, int index)
 {
 	stack->array[index].value = value;
 }
@@ -9,7 +9,7 @@ static void unit_test_value_change()
 {
 	//Arrange
 	t_stack	*stack = create_stack();
-	ssize_t	value = 10;
+	int64_t	value = 10;
 	int		index = 5;
 
 	//Act

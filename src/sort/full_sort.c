@@ -1,6 +1,4 @@
 #include "sort.h"
-#include <stdio.h>
-#include <limits.h>
 
 void	print_stack(t_stack *stack)
 {
@@ -19,9 +17,9 @@ void	print_stack(t_stack *stack)
 
 static int	push_to_a(t_stack *stack_a, t_stack *stack_b)
 {
-	ssize_t	fastest_index;
-	ssize_t	index;
-	ssize_t	instruction;
+	int64_t	fastest_index;
+	int64_t	index;
+	int64_t	instruction;
 
 	fastest_index = 0;
 	index = stack_b->top_index;
@@ -34,11 +32,10 @@ static int	push_to_a(t_stack *stack_a, t_stack *stack_b)
 static int	push_to_b(t_stack *stack_a, t_stack *stack_b)
 {
 	t_specs	specials;
-	ssize_t	*sorted_array;
+	int64_t	*sorted_array;
 
 	sorted_array = get_sorted_array(stack_a->array, stack_a->top_index + 1);
 	specials = find_special_values(sorted_array, stack_a->top_index + 1);
-	printf("min:	%zi, max:	%zi, mid:	%zi\n", specials.min, specials.max, specials.mid);
 	while (stack_a->top_index > 1)
 	{
 		if (stack_a->head.value != specials.min && \

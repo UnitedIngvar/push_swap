@@ -16,7 +16,7 @@ int	main(void)
 	stack_a->length = 5;
 
 	stack_b = malloc(sizeof(t_stack));
-	stack_b->array = malloc(sizeof(ssize_t) * 5);
+	stack_b->array = malloc(sizeof(int64_t) * 5);
 	stack_b->top_index = -1;
 	stack_b->length = 5;
 

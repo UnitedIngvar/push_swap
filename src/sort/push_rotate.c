@@ -1,7 +1,7 @@
 #include "sort.h"
 
 static t_bool	try_double_rotation(t_stack *stack_a, \
-	t_stack *stack_b, ssize_t fstst_i)
+	t_stack *stack_b, int64_t fstst_i)
 {
 	if (!stack_b->array[fstst_i].is_reversed_a && \
 		!stack_b->array[fstst_i].is_reversed_b)
@@ -19,7 +19,7 @@ static t_bool	try_double_rotation(t_stack *stack_a, \
 }
 
 static int	single_a_rotation(t_stack *stack_a, \
-	t_stack *stack_b, ssize_t fstst_i)
+	t_stack *stack_b, int64_t fstst_i)
 {
 	if (!stack_b->array[fstst_i].is_reversed_a)
 		stack_ra(stack_a);
@@ -30,7 +30,7 @@ static int	single_a_rotation(t_stack *stack_a, \
 }
 
 static int	single_b_rotation(t_stack *stack_a, \
-	t_stack *stack_b, ssize_t fstst_i)
+	t_stack *stack_b, int64_t fstst_i)
 {
 	if (!stack_b->array[fstst_i].is_reversed_a)
 		stack_ra(stack_a);
@@ -40,7 +40,7 @@ static int	single_b_rotation(t_stack *stack_a, \
 	stack_b->array[fstst_i].score--;
 }
 
-int	execute_push(t_stack *stack_a, t_stack *stack_b, ssize_t fstst_i)
+int	push_rotate(t_stack *stack_a, t_stack *stack_b, int64_t fstst_i)
 {
 	while (stack_b->array[fstst_i].score > 0)
 	{
@@ -58,6 +58,7 @@ int	execute_push(t_stack *stack_a, t_stack *stack_b, ssize_t fstst_i)
 		if (stack_b->array[fstst_i].score_a > 0)
 			single_a_rotation(stack_a, stack_b, fstst_i);
 		if (stack_a->array[fstst_i].score_b > 0)
-			single_b_rotation(stack_a, stack_b, fstst_i)
+			single_b_rotation(stack_a, stack_b, fstst_i);
 	}
+	stack_pa(stack_b, stack_a);
 }
