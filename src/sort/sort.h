@@ -22,7 +22,7 @@ void		clear_scores(t_stack *stack_a, t_stack *stack_b);
 int			full_sort(t_stack *stack_a, t_stack *stack_b);
 int			mini_sort(t_stack *stack_a, t_stack *stack_b);
 
-int			execute_push(t_stack *stack_a, t_stack *stack_b, int64_t fstst_i);
+int			push_rotate(t_stack *stack_a, t_stack *stack_b, int64_t fstst_i);
 
 # define MINISORT_MAX_STACK_SIZE 5
 

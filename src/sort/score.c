@@ -8,10 +8,7 @@ static void	add_a_score(t_stack *stack_a, t_scored *elem)
 	score_add = 1;
 	if (stack_a->head.value > elem->value && \
 		stack_a->array[0].value < elem->value)
-	{
-		elem->is_reversed_a = FALSE;
 		return ;
-	}
 	index = stack_a->top_index + 1;
 	elem->is_reversed_a = FALSE;
 	while (--index > 0)
@@ -20,12 +17,16 @@ static void	add_a_score(t_stack *stack_a, t_scored *elem)
 		if (index == stack_a->top_index / 2)
 		{
 			score_add = -1;
+			elem->score_a += score_add;
 			elem->is_reversed_a = TRUE;
-			//continue is not needed?
 		}
 		if (stack_a->array[index].value < elem->value && \
 			stack_a->array[index - 1].value > elem->value)
-			return ;
+			{
+				if (stack_a->top_index % 2 && elem->is_reversed_a == TRUE)
+					elem->score_a--;
+				return ;
+			}
 	}
 }
 
@@ -71,6 +72,7 @@ void	clear_scores(t_stack *stack_a, t_stack *stack_b)
 		stack_a->array[index].score_b = 0;
 		stack_a->array[index].score_a = 0;
 		stack_a->array[index].score = 0;
+		index--;
 	}
 	index = stack_b->top_index;
 	while (index >= 0)
@@ -80,6 +82,7 @@ void	clear_scores(t_stack *stack_a, t_stack *stack_b)
 		stack_b->array[index].score_b = 0;
 		stack_b->array[index].score_a = 0;
 		stack_b->array[index].score = 0;
+		index--;
 	}
 }
 

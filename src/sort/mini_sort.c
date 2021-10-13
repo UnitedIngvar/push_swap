@@ -11,7 +11,6 @@ static int	sort_two_nums(t_stack *stack)
 	if (stack->array[0].value < stack->array[1].value)
 		stack_rb(stack);
 	return (1);
-	print_stack(stack);
 }
 
 static int	sort_three_nums_asc(t_stack *stack)
@@ -41,7 +40,7 @@ static int	sort_three_nums_asc(t_stack *stack)
 	return (1);
 }
 
-static void	push_rotate(t_stack *stack_b, t_stack *stack_a)
+static void	push_rotate_local(t_stack *stack_b, t_stack *stack_a)
 {
 	stack_pa(stack_b, stack_a);
 	stack_ra(stack_a);
@@ -60,7 +59,7 @@ static int	merge_stacks(t_stack *stack_a, t_stack *stack_b)
 		{
 			if (stack_b->head.value < beginning)
 				beginning = stack_b->head.value;
-			push_rotate(stack_b, stack_a);
+			push_rotate_local(stack_b, stack_a);
 		}
 		else
 			stack_ra(stack_a);
@@ -69,7 +68,7 @@ static int	merge_stacks(t_stack *stack_a, t_stack *stack_b)
 		itered = TRUE;
 	}
 	while (stack_b->top_index > -1)
-		push_rotate(stack_b, stack_a);
+		push_rotate_local(stack_b, stack_a);
 	while (!is_sorted(stack_a))
 		stack_ra(stack_a);
 	return (1);

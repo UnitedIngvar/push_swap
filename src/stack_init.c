@@ -39,7 +39,7 @@ t_stack	*init_stack_a(int64_t *values, int64_t length)
 		stack_a->array[index].is_reversed_b = FALSE;
 		index++;
 	}
-	stack_a->top_index = index - 1;
+	stack_a->top_index = length - 1;
 	stack_a->length = length;
-	stack_a->head = stack_a->array[index - 1];
+	stack_a->head = stack_a->array[length - 1];
 }

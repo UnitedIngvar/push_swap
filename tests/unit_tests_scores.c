@@ -2,10 +2,11 @@
 #include "../src/sort/sort.h"
 #include <stdio.h>
 
-void	print_stack(t_stack *stack)
+void	print_stack(t_stack *stack, char *stack_str)
 {
 	int	i;
 
+	printf(stack_str);
 	i = stack->top_index;
 	while (i >= 0)
 	{
@@ -18,6 +19,7 @@ void	print_scores(t_stack *stack)
 {
 	int	i;
 
+	printf("Scores:			");
 	i = stack->top_index;
 	while (i >= 0)
 	{
@@ -26,10 +28,11 @@ void	print_scores(t_stack *stack)
 	printf("\n");
 }
 
-void	print_b_scores(t_stack *stack)
+void	print_b_scores(t_stack *stack, char *str)
 {
 	int	i;
 
+	printf("B scores:		");
 	i = stack->top_index;
 	while (i >= 0)
 	{
@@ -38,10 +41,11 @@ void	print_b_scores(t_stack *stack)
 	printf("\n");
 }
 
-void	print_a_scores(t_stack *stack)
+void	print_a_scores(t_stack *stack, char *str)
 {
 	int	i;
 
+	printf("A scores:		");
 	i = stack->top_index;
 	while (i >= 0)
 	{
@@ -50,10 +54,11 @@ void	print_a_scores(t_stack *stack)
 	printf("\n");
 }
 
-void	print_a_rotations(t_stack *stack)
+void	print_a_rotations(t_stack *stack, char *str)
 {
 	int	i;
 
+	printf("A rotations:		");
 	i = stack->top_index;
 	while (i >= 0)
 	{
@@ -69,6 +74,7 @@ void	print_b_rotations(t_stack *stack)
 {
 	int	i;
 
+	printf("B rotations:		");
 	i = stack->top_index;
 	while (i >= 0)
 	{
@@ -79,6 +85,20 @@ void	print_b_rotations(t_stack *stack)
 	}
 	printf("\n");
 }
+
+void	print_array(int64_t array, int64_t length)
+{
+	int	i;
+
+	printf("Scores:		");
+	i = length;
+	while (i >= 0)
+	{
+		printf("%zi	", length);
+	}
+	printf("\n");
+}
+
 
 void unit_test_scores_acami_advanced()
 {

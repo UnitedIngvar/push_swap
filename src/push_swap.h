@@ -2,6 +2,7 @@
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <inttypes.h>
 
 typedef int	t_bool;
@@ -42,6 +43,14 @@ void	stack_ss(t_stack *stack_a, t_stack *stack_b);
 void	stack_rr(t_stack *stack_a, t_stack *stack_b);
 void	stack_rrr(t_stack *stack_a, t_stack *stack_b);
 
-int		sort_stack(t_stack *stack_a, t_stack *stack_b);
+//int		sort_stack(t_stack *stack_a, t_stack *stack_b, int64_t length);
+void	print_stack(t_stack *stack, char *stack_str);
+void	print_b_rotations(t_stack *stack);
+void	print_a_rotations(t_stack *stack);
+void	print_a_scores(t_stack *stack);
+void	print_b_scores(t_stack *stack);
+void	print_scores(t_stack *stack);
+void	print_all(t_stack *stack_a, t_stack *stack_b);
+
 
 #endif
