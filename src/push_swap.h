@@ -52,5 +52,9 @@ void	print_b_scores(t_stack *stack);
 void	print_scores(t_stack *stack);
 void	print_all(t_stack *stack_a, t_stack *stack_b);
 
+char	**ft_split(char const *s, char c);
+int64_t	*parse_values(char **values, int64_t counter);
+t_bool	is_space(char c);
+
 
 #endif

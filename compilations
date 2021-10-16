@@ -7,3 +7,7 @@ stack unit testing:
 
 scores unit testing:
 	MAC: gcc tests/unit_tests_scores.c src/sort/score.c
+
+
+Whole: gcc .\src\sort\sort.c .\src\sort\quick_sort.c .\src\sort\full_sort.c .\src\sort\mini_sort.c .\src\sort\push_rotate.c .\src\sort\score.c
+.\src\sort\sort_utils.c .\src\operations\operations_A.c .\src\operations\operations_AB.c .\src\operations\operations_B.c .\src\operations\operations_common.c .\src\debug.c -o push_swap
