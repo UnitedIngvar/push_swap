@@ -1,8 +1,20 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/16 14:49:05 by hcrakeha          #+#    #+#             */
+/*   Updated: 2021/10/16 15:36:15 by hcrakeha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-t_stack *init_stack_b(int64_t length)
+#include "../push_swap.h"
+
+t_stack	*init_stack_b(int64_t length)
 {
-	t_stack *stack_b;
+	t_stack	*stack_b;
 	int64_t	index;
 
 	stack_b = malloc(sizeof(t_stack));

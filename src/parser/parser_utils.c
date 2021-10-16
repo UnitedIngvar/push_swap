@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.h                                       :+:      :+:    :+:   */
+/*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/16 14:47:50 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 14:47:52 by hcrakeha         ###   ########.fr       */
+/*   Created: 2021/10/16 14:49:08 by hcrakeha          #+#    #+#             */
+/*   Updated: 2021/10/16 19:17:01 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPERATIONS_H
-# define OPERATIONS_H
-# include "../push_swap.h"
+#include "parser.h"
 
-void	stack_push(t_stack *stack_from, t_stack *stack_to);
-void	stack_swap(t_stack *stack);
-void	stack_rotate(t_stack *stack);
-void	stack_rotate_reverse(t_stack *stack);
+t_bool	ft_is_space(char c)
+{
+	if (c == ' ' || c == '\t' || c == '\n' || \
+		c == '\r' || c == '\v' || c == '\f')
+		return (TRUE);
+	return (FALSE);
+}
 
-#endif
+t_bool	ft_is_digit(int c)
+{
+	if ('0' <= c && c <= '9')
+		return (1);
+	return (0);
+}

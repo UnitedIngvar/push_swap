@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   score.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/16 14:48:25 by hcrakeha          #+#    #+#             */
+/*   Updated: 2021/10/16 19:16:05 by hcrakeha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "sort.h"
 
 static void	add_a_score(t_stack *stack_a, t_scored *elem)
@@ -22,11 +34,11 @@ static void	add_a_score(t_stack *stack_a, t_scored *elem)
 		}
 		if (stack_a->array[index].value < elem->value && \
 			stack_a->array[index - 1].value > elem->value)
-			{
-				if (stack_a->top_index % 2 && elem->is_reversed_a == TRUE)
-					elem->score_a--;
-				return ;
-			}
+		{
+			if (stack_a->top_index % 2 && elem->is_reversed_a == TRUE)
+				elem->score_a--;
+			return ;
+		}
 	}
 }
 
@@ -62,7 +74,7 @@ void	assign_scores(t_stack *stack_a, t_stack *stack_b)
 
 void	clear_scores(t_stack *stack_a, t_stack *stack_b)
 {
-	int64_t index;
+	int64_t	index;
 
 	index = stack_a->top_index;
 	while (index >= 0)
@@ -85,49 +97,3 @@ void	clear_scores(t_stack *stack_a, t_stack *stack_b)
 		index--;
 	}
 }
-
-// int main(void)
-// {
-// 	t_stack	*stack_a = malloc(sizeof(t_stack));
-// 	t_stack *stack_b = malloc(sizeof(t_stack));
-// 	int		arr_length = 10;
-
-// 	stack_b->array = malloc(sizeof(t_scored) * arr_length);
-// 	stack_a->array = malloc(sizeof(t_scored) * arr_length);
-// 	stack_a->length = arr_length;
-// 	stack_b->length = arr_length;
-// 	stack_a->top_index = 1;
-// 	stack_b->top_index = 7;
-
-// 	stack_a->array[0].value = 2147483647;
-// 	stack_a->array[1].value = -2147483648;
-// 	stack_a->head = stack_a->array[1];
-
-// 	stack_b->array[0].value = 6436;
-// 	stack_b->array[1].value = 979;
-// 	stack_b->array[2].value = 6447;
-// 	stack_b->array[3].value = 10;
-// 	stack_b->array[4].value = 77;
-// 	stack_b->array[5].value = 4;
-// 	stack_b->array[6].value = 8;
-// 	stack_b->array[7].value = -47;
-// 	stack_b->head = stack_b->array[7];
-
-// 	int64_t index = stack_a->top_index;
-
-// 	assign_scores(stack_a, stack_b);
-// 	printf("stack A:	");
-// 	print_stack(stack_a);
-// 	printf("stack B:	");
-// 	print_stack(stack_b);
-// 	printf("scores:		");
-// 	print_scores(stack_b);
-// 	printf("B scores:	");
-// 	print_b_scores(stack_b);
-// 	printf("is rev B:	");
-// 	print_b_rotations(stack_b);
-// 	printf("A scores:	");
-// 	print_a_scores(stack_b);
-// 	printf("is rev A:	");
-// 	print_a_rotations(stack_b);
-// }

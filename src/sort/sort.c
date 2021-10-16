@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/16 14:48:32 by hcrakeha          #+#    #+#             */
+/*   Updated: 2021/10/16 19:06:59 by hcrakeha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "sort.h"
 
-int sort_stack(t_stack *stack_a, t_stack *stack_b, int64_t length)
+int	sort_stack(t_stack *stack_a, t_stack *stack_b, int64_t length)
 {
 	if (length <= MINISORT_MAX_STACK_SIZE)
 		mini_sort(stack_a, stack_b);
