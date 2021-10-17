@@ -6,13 +6,11 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:48:10 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 20:01:04 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 17:20:11 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
-#include <stdio.h>
-#include <limits.h>
 
 static int	sort_two_nums(t_stack *stack)
 {

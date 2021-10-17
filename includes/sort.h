@@ -6,7 +6,7 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:48:36 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 16:15:29 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 17:26:14 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int			full_sort(t_stack *stack_a, t_stack *stack_b);
 //Sort stack consisting of less than MINISORT_MAX_STACK_SIZE.
 int			mini_sort(t_stack *stack_a, t_stack *stack_b);
 
-//Rotates both stacks based on scores assigned to elements of stack B
+//Rotates both stacks based on scores assigned to the element passed in
 void		push_rotate(t_stack *stack_a, t_stack *stack_b, t_scored elem);
 
 # define MINISORT_MAX_STACK_SIZE 5

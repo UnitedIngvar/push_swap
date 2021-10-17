@@ -6,7 +6,7 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 23:03:58 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 01:41:21 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 19:25:30 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 # include <inttypes.h>
 # include <stdlib.h>
 
+//Rollback context is responsible for storing pointers to allocated memory
+//in order to free it when demanded. Use safe_malloc() function to enlist
+//new pointer in it
 typedef struct s_rollback_context
 {
-	void	**entity_array;
+	void	**pointer_array;
 	int64_t	enl_index;
 }	t_rollback_context;
 
+//Enumeration of action applied to rollback context
 enum e_rollback_action
 {
 	act_init = 0,

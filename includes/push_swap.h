@@ -6,17 +6,15 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:49:00 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 14:44:47 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 19:28:34 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
 # include "rollback_context.h"
-#include <stdio.h>
+
 /*Predifine section*/
 
 //Boolean
@@ -65,7 +63,6 @@ typedef struct s_stack
 
 //Functions responsible for operations on stakc B
 
-void	stack_sb(t_stack *stack);
 void	stack_pb(t_stack *stack_a, t_stack *stack_b);
 void	stack_rb(t_stack *stack_b);
 void	stack_rrb(t_stack *stack);
@@ -83,38 +80,17 @@ void	stack_ss(t_stack *stack_a, t_stack *stack_b);
 void	stack_rr(t_stack *stack_a, t_stack *stack_b);
 void	stack_rrr(t_stack *stack_a, t_stack *stack_b);
 
-/*End of operation section */
-
-void	print_stack(t_stack *stack, char *stack_str);
-void	print_b_rotations(t_stack *stack);
-void	print_a_rotations(t_stack *stack);
-void	print_a_scores(t_stack *stack);
-void	print_b_scores(t_stack *stack);
-void	print_scores(t_stack *stack);
-void	print_all(t_stack *stack_a, t_stack *stack_b);
-
-/*Parser section*/
-
 //Accepts an array of strings and processes it into an
 //array of ints if every element pass the game rules.
 //Returns NULL on error
 int64_t	*parse_values(char **values, int64_t size);
 
-/*End of parser section*/
-
-/*Sort section */
-
 //Function responsible for sorting stack A
 int		sort_stack(t_stack *stack_a, t_stack *stack_b, int64_t length);
 
-/*End of sort section */
-
-/*Core section */
-
 //Finishes program and frees all memory allocated
 void	finish_program(t_bool success);
+
 //Mallocs and pushes to rollback context. On error, executes finish
 void	*safe_malloc(size_t size);
-
-/*End of core section */
 #endif

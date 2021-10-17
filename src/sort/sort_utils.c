@@ -6,12 +6,11 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:48:29 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 02:56:37 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 17:20:25 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
-#include <stdio.h>
 
 static int64_t	*copy_array(t_scored *arr, long len)
 {

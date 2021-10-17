@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rollback_context.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftassada <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 22:49:04 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 11:42:11 by ftassada         ###   ########.fr       */
+/*   Updated: 2021/10/17 17:19:50 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rollback_context.h"
-#include <unistd.h>
-#include <stdio.h>
 
 static void	execute_rollback_internal(t_rollback_context **context)
 {
@@ -21,10 +19,12 @@ static void	execute_rollback_internal(t_rollback_context **context)
 	temp = *context;
 	while (temp->enl_index > EMPTY)
 	{
-		free(temp->entity_array[temp->enl_index]);
-		temp->entity_array[temp->enl_index] = NULL;
+		free(temp->pointer_array[temp->enl_index]);
+		temp->pointer_array[temp->enl_index] = NULL;
 		temp->enl_index--;
 	}
+	free(temp->pointer_array);
+	temp->pointer_array = NULL;
 	free(temp);
 	temp = NULL;
 }
@@ -36,13 +36,13 @@ static void	action_on_rollback(enum e_rollback_action action, void *data)
 	if (action == act_init)
 	{
 		context = malloc(sizeof(*context));
-		context->entity_array = malloc(sizeof(void *) * ROLLBACK_CONTEXT_SIZE);
+		context->pointer_array = malloc(sizeof(void *) * ROLLBACK_CONTEXT_SIZE);
 		context->enl_index = EMPTY;
 	}
 	else if (action == act_push)
 	{
 		context->enl_index++;
-		context->entity_array[context->enl_index] = data;
+		context->pointer_array[context->enl_index] = data;
 	}
 	else if (action == act_rollback)
 		execute_rollback_internal(&context);

@@ -6,17 +6,11 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:47:35 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 14:47:39 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 18:51:45 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
-
-void	stack_sb(t_stack *stack)
-{
-	stack_swap(stack);
-	write(1, "sb\n", 3);
-}
 
 void	stack_pb(t_stack *stack_a, t_stack *stack_b)
 {

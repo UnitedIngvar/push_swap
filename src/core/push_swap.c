@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftassada <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:48:54 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 11:41:48 by ftassada         ###   ########.fr       */
+/*   Updated: 2021/10/17 18:25:57 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	if (argc < 3)
+	if (argc < 2)
 		return (0);
 	stack_size = argc - 1;
 	init_rollback_context();

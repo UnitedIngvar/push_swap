@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   operations_common.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftassada <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:47:44 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 11:42:22 by ftassada         ###   ########.fr       */
+/*   Updated: 2021/10/17 17:23:28 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "operations.h"
 
 void	stack_push(t_stack *stack_from, t_stack *stack_to)
 {

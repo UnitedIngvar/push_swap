@@ -1,5 +1,5 @@
 SRC			=	${OPERATION} ${PARS} \
-				${SORT} ${CORE} ${DEBUG}
+				${SORT} ${CORE}
 
 PARS		=	src/parser/ft_atoi.c src/parser/parser_utils.c \
 				src/parser/parser.c
@@ -14,10 +14,6 @@ OPERATION	=	src/operations/operations_A.c src/operations/operations_B.c \
 CORE		=	src/core/push_swap.c src/core/program_finish.c \
 				src/core/rollback_context.c src/core/safe_malloc.c
 
-DEBUG		=	src/debug
-
-DEBUG		=	src/debug.c
-
 OBJ			=	${SRC:.c=.o}
 
 INCLUDES	=	includes/
@@ -26,12 +22,16 @@ NAME		=	push_swap
 
 CFLAGS		=	-Wall -Werror -Wextra
 
-%.o:			%.c Makefile $(INCLUDES)push_swap.h
-				${CC} $(CFLAGS) -c $< -o $@ -I ${INCLUDES}
+%.o:			%.c Makefile $(INCLUDES)push_swap.h $(INCLUDES)operations.h \
+								$(INCLUDES)parser.h $(INCLUDES)push_swap.h \
+				 				$(INCLUDES)rollback_context.h $(INCLUDES)sort.h
+				${CC} $(CFLAGS) -c $< -o  $@ -I ${INCLUDES}
 
 all:			$(NAME)
 
-$(NAME):		$(OBJ) $(INCLUDES)push_swap.h Makefile
+$(NAME):		$(OBJ) $(INCLUDES)push_swap.h $(INCLUDES)operations.h \
+								$(INCLUDES)parser.h $(INCLUDES)push_swap.h \
+				 				$(INCLUDES)rollback_context.h $(INCLUDES)sort.h
 				${CC} ${CFLAGS} ${OBJ} -o $(NAME)
 
 clean:
@@ -42,4 +42,4 @@ fclean:			clean
 
 re:				fclean all
 
-.PHONY:			all clean fclean re $(NAME)
+.PHONY:			all clean fclean re
