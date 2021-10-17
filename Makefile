@@ -1,5 +1,5 @@
 SRC			=	${OPERATION} ${PARS} \
-				${SORT} ${CORE} ${DEBUG}
+				${SORT} ${CORE}
 
 PARS		=	src/parser/ft_atoi.c src/parser/parser_utils.c \
 				src/parser/parser.c

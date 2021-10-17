@@ -6,7 +6,7 @@
 /*   By: ftassada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:47:44 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 11:28:42 by ftassada         ###   ########.fr       */
+/*   Updated: 2021/10/17 11:42:22 by ftassada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	stack_push(t_stack *stack_from, t_stack *stack_to)
 {
-	printf("length is %lld && top_index is %lld\n", stack_from->length, stack_from->top_index);
 	if (stack_from->top_index == EMPTY || stack_from->length == 0)
 		return ;
 	stack_to->top_index++;

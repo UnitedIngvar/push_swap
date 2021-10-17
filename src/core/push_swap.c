@@ -6,7 +6,7 @@
 /*   By: ftassada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:48:54 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 11:30:07 by ftassada         ###   ########.fr       */
+/*   Updated: 2021/10/17 11:41:48 by ftassada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,10 @@ int	main(int argc, char **argv)
 	if (argc < 3)
 		return (0);
 	stack_size = argc - 1;
-	printf("initing rollback context\n");
 	init_rollback_context();
-	printf("parsing values\n");
 	values = parse_values(argv + 1, stack_size);
-	printf("initing stack A\n");
 	stack_a = init_stack_a(values, stack_size);
-	printf("initing stack B\n");
 	stack_b = init_stack_b(stack_size);
-	printf("After initing\n");
-	print_stack(stack_a, "Stack A:	");
 	sort_stack(stack_a, stack_b, stack_a->length);
-	print_stack(stack_a, "Stack A:	");
 	finish_program(TRUE);
 }

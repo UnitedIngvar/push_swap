@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   safe_malloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftassada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 00:46:20 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 02:16:29 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 11:42:15 by ftassada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	*safe_malloc(size_t size)
 {
 	void	*malloced;
 
-	printf("Safe malloc\n");
 	malloced = malloc(size);
 	if (malloced == NULL)
 		finish_program(FALSE);
