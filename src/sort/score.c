@@ -6,7 +6,7 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:48:25 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 19:16:05 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 01:28:47 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static void	add_a_score(t_stack *stack_a, t_scored *elem)
 		stack_a->array[0].value < elem->value)
 		return ;
 	index = stack_a->top_index + 1;
-	elem->is_reversed_a = FALSE;
 	while (--index > 0)
 	{
 		elem->score_a += score_add;

@@ -6,14 +6,14 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:48:36 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 19:17:01 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 01:36:33 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SORT_H
 # define SORT_H
 
-# include "../push_swap.h"
+# include "push_swap.h"
 
 //Data structure that represents the values gotten from the pre-sorted array.
 typedef struct s_specs
@@ -35,16 +35,23 @@ void		quick_sort(int64_t *arr, int low, int high);
 //Gets sorted array
 int64_t		*get_sorted_array(t_scored *array, long len);
 
-//Finnd min, max and med in sorted array
+//Find min, max and med in sorted array
 t_specs		find_special_values(const int64_t *sorted_array, int64_t len);
 
+//Assigns scores to elems in stack B
 void		assign_scores(t_stack *stack_a, t_stack *stack_b);
+
+//Clears scores of elems in stack
 void		clear_scores(t_stack *stack_a, t_stack *stack_b);
 
+//Sort stack consisting of more than MINISORT_MAX_STACK_SIZE.
 int			full_sort(t_stack *stack_a, t_stack *stack_b);
+
+//Sort stack consisting of less than MINISORT_MAX_STACK_SIZE.
 int			mini_sort(t_stack *stack_a, t_stack *stack_b);
 
-int			push_rotate(t_stack *stack_a, t_stack *stack_b, int64_t fstst_i);
+//Rotates both stacks based on scores assigned to elements of stack B
+void		push_rotate(t_stack *stack_a, t_stack *stack_b, int64_t fstst_i);
 
 # define MINISORT_MAX_STACK_SIZE 5
 

@@ -6,7 +6,7 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:48:29 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 14:48:30 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 02:56:37 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int64_t	*copy_array(t_scored *arr, long len)
 	int64_t	*new_arr;
 	int		i;
 
-	new_arr = malloc(sizeof(int64_t) * len);
+	new_arr = safe_malloc(sizeof(*new_arr) * len);
 	i = -1;
 	while (++i < len)
 		new_arr[i] = arr[i].value;

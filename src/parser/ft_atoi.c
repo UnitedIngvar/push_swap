@@ -6,19 +6,11 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:51:17 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 19:14:04 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 01:12:09 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
-
-static int	ft_is_space(char c)
-{
-	if (c == ' ' || c == '\t' || c == '\r' \
-	|| c == '\v' || c == '\n' || c == '\r')
-		return (1);
-	return (0);
-}
 
 void	ft_putstr(char *str)
 {
@@ -26,13 +18,7 @@ void	ft_putstr(char *str)
 		write(1, str++, 1);
 }
 
-void	ft_put_error(void)
-{
-	ft_putstr("Error\n");
-	exit(1);
-}
-
-int	ft_isdigit(char *str)
+t_bool	ft_isdigit(char *str)
 {
 	int	minus_counter;
 	int	plus_counter;
@@ -51,12 +37,12 @@ int	ft_isdigit(char *str)
 	}
 	if (minus_counter > 1 || plus_counter > 1 || \
 		(plus_counter == 1 && minus_counter == 1))
-		return (0);
+		return (FALSE);
 	while (*str && *str >= '0' && *str <= '9')
 		str++;
 	if (*str && !(*str >= '0' && *str <= '9'))
-		return (0);
-	return (1);
+		return (FALSE);
+	return (TRUE);
 }
 
 int	ft_validating_atoi(char *str)
@@ -81,9 +67,9 @@ int	ft_validating_atoi(char *str)
 	{
 		i = i * 10 + (*str++ - '0');
 		if (++digits > MAX_INT_DIGITS)
-			ft_put_error();
+			finish_program(FALSE);
 	}
 	if (!(i * minus >= ELEM_MIN && i * minus <= ELEM_MAX))
-		ft_put_error();
+		finish_program(FALSE);
 	return (i * minus);
 }

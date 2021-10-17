@@ -6,7 +6,7 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:49:00 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 19:02:02 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 02:58:46 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include <inttypes.h>
+# include "rollback_context.h"
 
 /*Predifine section*/
 
@@ -102,7 +102,8 @@ int64_t	*parse_values(char **values, int64_t size);
 
 /*End of parser section*/
 
-//*Sort section */
+/*Sort section */
+
 //Function responsible for sorting stack A
 int		sort_stack(t_stack *stack_a, t_stack *stack_b, int64_t length);
 
@@ -110,8 +111,10 @@ int		sort_stack(t_stack *stack_a, t_stack *stack_b, int64_t length);
 
 /*Core section */
 
-t_stack	*init_stack_a(int64_t *values, int64_t length);
-t_stack	*init_stack_b(int64_t length);
+//Finishes program and frees all memory allocated
+void	finish_program(t_bool success);
+//Mallocs and pushes to rollback context. On error, executes finish
+void	*safe_malloc(size_t size);
 
 /*End of core section */
 #endif

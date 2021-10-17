@@ -6,18 +6,17 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:47:59 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 14:48:00 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 03:01:18 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-static int	push_to_a(t_stack *stack_a, t_stack *stack_b)
+static void	push_to_a(t_stack *stack_a, t_stack *stack_b)
 {
 	printf("Starting pushing to A\n");
 	int64_t	fastest_index;
 	int64_t	index;
-	int64_t	instruction;
 
 	fastest_index = 0;
 	index = -1;
@@ -26,12 +25,12 @@ static int	push_to_a(t_stack *stack_a, t_stack *stack_b)
 		if (stack_b->array[index].score <= stack_b->array[fastest_index].score)
 			fastest_index = index;
 	}
-	printf("Fastet index: %zi\n", fastest_index);
+	printf("Fastet index: %lli\n", fastest_index);
 	push_rotate(stack_a, stack_b, fastest_index);
 	printf("finished pushing to A\n");
 }
 
-static int	push_to_b(t_stack *stack_a, t_stack *stack_b)
+static void	push_to_b(t_stack *stack_a, t_stack *stack_b)
 {
 	printf("Starting pushing to B\n");
 	t_specs	specials;
@@ -52,15 +51,14 @@ static int	push_to_b(t_stack *stack_a, t_stack *stack_b)
 		}
 		else
 			stack_ra(stack_a);
-		printf("A top index:	%zi\n", stack_a->top_index);
-		printf("B top index:	%zi\n", stack_b->top_index);
+		printf("A top index:	%lli\n", stack_a->top_index);
+		printf("B top index:	%lli\n", stack_b->top_index);
 		printf("Stack A:	");
 		print_stack(stack_a, 0);
 		printf("Stack B:	");
 		print_stack(stack_b, 0);
 	}
 	printf("finished pushing to B\n");
-	return (1);
 }
 
 int	full_sort(t_stack *stack_a, t_stack *stack_b)
@@ -68,9 +66,9 @@ int	full_sort(t_stack *stack_a, t_stack *stack_b)
 	push_to_b(stack_a, stack_b);
 
 	printf("Now trying to execute push to A!!!\n");
-	while (stack_b->top_index > -1)
+	while (stack_b->top_index > EMPTY)
 	{
-		printf("A top index:	%zi\n\n", stack_b->top_index);
+		printf("A top index:	%lli\n\n", stack_b->top_index);
 		printf("Starting clearing scores!\n");
 		clear_scores(stack_a, stack_b);
 		printf("Cleared scores! Here they are\n");
@@ -81,4 +79,7 @@ int	full_sort(t_stack *stack_a, t_stack *stack_b)
 		print_all(stack_a, stack_b);
 		push_to_a(stack_a, stack_b);
 	}
+	while (!is_sorted(stack_a))
+		stack_ra(stack_a);
+	return (1);
 }

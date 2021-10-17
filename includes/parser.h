@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.h                                       :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/16 14:47:50 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 14:47:52 by hcrakeha         ###   ########.fr       */
+/*   Created: 2021/10/16 15:06:04 by hcrakeha          #+#    #+#             */
+/*   Updated: 2021/10/16 21:29:18 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPERATIONS_H
-# define OPERATIONS_H
-# include "../push_swap.h"
+#ifndef PARSER_H
+# define PARSER_H
+# include "push_swap.h"
 
-void	stack_push(t_stack *stack_from, t_stack *stack_to);
-void	stack_swap(t_stack *stack);
-void	stack_rotate(t_stack *stack);
-void	stack_rotate_reverse(t_stack *stack);
+t_bool	ft_is_space(char c);
+t_bool	ft_is_digit(int c);
+int		ft_validating_atoi(char *str);
+
+# define MAX_INT_DIGITS 10
+# define ELEM_MIN -2147483648
+# define ELEM_MAX 2147483647
 
 #endif

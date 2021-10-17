@@ -6,7 +6,7 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:48:13 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 14:48:14 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/16 22:25:05 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static t_bool	try_double_rotation(t_stack *stack_a, \
 	return (FALSE);
 }
 
-static int	single_a_rotation(t_stack *stack_a, \
+static void	single_a_rotation(t_stack *stack_a, \
 	t_stack *stack_b, int64_t fstst_i)
 {
 	if (!stack_b->array[fstst_i].is_reversed_a)
@@ -41,7 +41,7 @@ static int	single_a_rotation(t_stack *stack_a, \
 	stack_b->array[fstst_i].score--;
 }
 
-static int	single_b_rotation(t_stack *stack_a, \
+static void	single_b_rotation(t_stack *stack_a, \
 	t_stack *stack_b, int64_t fstst_i)
 {
 	if (!stack_b->array[fstst_i].is_reversed_a)
@@ -52,7 +52,7 @@ static int	single_b_rotation(t_stack *stack_a, \
 	stack_b->array[fstst_i].score--;
 }
 
-int	push_rotate(t_stack *stack_a, t_stack *stack_b, int64_t fstst_i)
+void	push_rotate(t_stack *stack_a, t_stack *stack_b, int64_t fstst_i)
 {
 	while (stack_b->array[fstst_i].score > 0)
 	{

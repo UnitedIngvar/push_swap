@@ -6,23 +6,19 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:48:54 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 19:16:57 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 02:58:35 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static t_stack	*init_stack_b(int64_t size)
 {
 	t_stack	*stack_b;
 	int64_t	index;
 
-	stack_b = malloc(sizeof(stack_b));
-	if (stack_b == NULL)
-		return (NULL);
-	stack_b->array = malloc(sizeof(stack_b->array) * size);
-	if (stack_b->array == NULL)
-		return (NULL);
+	stack_b = safe_malloc(sizeof(*stack_b));
+	stack_b->array = safe_malloc(sizeof(*(stack_b->array)) * size);
 	stack_b->top_index = EMPTY;
 	index = 0;
 	while (index < size)
@@ -35,33 +31,34 @@ static t_stack	*init_stack_b(int64_t size)
 		stack_b->array[index].is_reversed_b = FALSE;
 		index++;
 	}
+	return (stack_b);
 }
 
 static t_stack	*init_stack_a(int64_t *values, int64_t size)
 {
 	t_stack	*stack_a;
 	int64_t	index;
+	int64_t	stack_index;
 
-	stack_a = malloc(sizeof(t_stack));
-	if (stack_a == NULL)
-		return (NULL);
-	stack_a->array = malloc(sizeof(t_scored) * size);
-	if (stack_a->array == NULL)
-		return (NULL);
+	stack_a = safe_malloc(sizeof(*stack_a));
+	stack_index = size - 1;
+	stack_a->array = safe_malloc(sizeof(*(stack_a->array)) * size);
 	index = 0;
 	while (index < size)
 	{
-		stack_a->array[index].value = values[index];
-		stack_a->array[index].score_a = 0;
-		stack_a->array[index].score_b = 0;
-		stack_a->array[index].score = 0;
-		stack_a->array[index].is_reversed_a = FALSE;
-		stack_a->array[index].is_reversed_b = FALSE;
+		stack_a->array[stack_index].value = values[index];
+		stack_a->array[stack_index].score_a = 0;
+		stack_a->array[stack_index].score_b = 0;
+		stack_a->array[stack_index].score = 0;
+		stack_a->array[stack_index].is_reversed_a = FALSE;
+		stack_a->array[stack_index].is_reversed_b = FALSE;
 		index++;
+		stack_index--;
 	}
 	stack_a->top_index = size - 1;
 	stack_a->length = size;
 	stack_a->head = stack_a->array[size - 1];
+	return (stack_a);
 }
 
 int	main(int argc, char **argv)
@@ -73,9 +70,18 @@ int	main(int argc, char **argv)
 
 	if (argc < 3)
 		return (0);
-	stack_size = argc - 2;
-	values = parse_values(argv + 2, stack_size);
+	stack_size = argc - 1;
+	printf("initing rollback context\n");
+	init_rollback_context();
+	printf("parsing values\n");
+	values = parse_values(argv + 1, stack_size);
+	printf("initing stack A\n");
 	stack_a = init_stack_a(values, stack_size);
+	printf("initing stack B\n");
 	stack_b = init_stack_b(stack_size);
-	sort_stack_a(stack_a, stack_b);
+	printf("After initing\n");
+	print_stack(stack_a, "Stack A:	");
+	sort_stack(stack_a, stack_b, stack_a->length);
+	print_stack(stack_a, "Stack A:	");
+	finish_program(TRUE);
 }

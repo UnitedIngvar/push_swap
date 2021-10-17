@@ -4,11 +4,11 @@ void	print_stack(t_stack *stack, char *stack_str)
 {
 	int	i;
 
-	printf(stack_str);
+	printf("%s", stack_str);
 	i = stack->top_index;
 	while (i >= 0)
 	{
-		printf("%zi	", stack->array[i--].value);
+		printf("%lli	", stack->array[i--].value);
 	}
 	printf("\n");
 }
@@ -21,7 +21,7 @@ void	print_scores(t_stack *stack)
 	i = stack->top_index;
 	while (i >= 0)
 	{
-		printf("%zi	", stack->array[i--].score);
+		printf("%lli	", stack->array[i--].score);
 	}
 	printf("\n");
 }
@@ -34,7 +34,7 @@ void	print_b_scores(t_stack *stack)
 	i = stack->top_index;
 	while (i >= 0)
 	{
-		printf("%zi	", stack->array[i--].score_b);
+		printf("%lli	", stack->array[i--].score_b);
 	}
 	printf("\n");
 }
@@ -47,7 +47,7 @@ void	print_a_scores(t_stack *stack)
 	i = stack->top_index;
 	while (i >= 0)
 	{
-		printf("%zi	", stack->array[i--].score_a);
+		printf("%lli	", stack->array[i--].score_a);
 	}
 	printf("\n");
 }
@@ -85,7 +85,7 @@ void	print_b_rotations(t_stack *stack)
 }
 
 
-void print_all(t_stack *stack_a, t_stack *stack_b)
+void	print_all(t_stack *stack_a, t_stack *stack_b)
 {
 	print_stack(stack_a, "stack A:		");
 	print_stack(stack_b, "stack B:		");

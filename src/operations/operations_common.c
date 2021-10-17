@@ -6,22 +6,22 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:47:44 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/16 14:47:45 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 01:17:27 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	stack_push(t_stack *stack_from, t_stack *stack_to)
 {
-	if (stack_from->top_index == -1 || stack_from->length == 0)
+	if (stack_from->top_index == EMPTY || stack_from->length == 0)
 		return ;
 	stack_to->top_index++;
 	stack_to->head = stack_from->head;
 	stack_to->array[stack_to->top_index] = \
 		stack_from->array[stack_from->top_index];
 	stack_from->top_index--;
-	if (stack_from->top_index > -1)
+	if (stack_from->top_index > EMPTY)
 		stack_from->head = stack_from->array[stack_from->top_index];
 }
 
@@ -29,7 +29,7 @@ void	stack_swap(t_stack *stack)
 {
 	t_scored	temp;
 
-	if (stack->top_index == -1 || stack->length == 0)
+	if (stack->top_index == EMPTY || stack->length == 0)
 		return ;
 	temp = stack->head;
 	stack->array[stack->top_index] = stack->array[stack->top_index - 1];
