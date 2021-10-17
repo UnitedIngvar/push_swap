@@ -6,7 +6,7 @@
 /*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:48:25 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 01:28:47 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 14:36:17 by hcrakeha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,30 @@
 static void	add_a_score(t_stack *stack_a, t_scored *elem)
 {
 	int64_t	index;
-	int64_t	score_add;
+	int64_t	a_score;
+	int64_t	arr_size;
 
-	score_add = 1;
+	a_score = 1;
+	arr_size = stack_a->top_index + 1;
 	if (stack_a->head.value > elem->value && \
 		stack_a->array[0].value < elem->value)
 		return ;
-	index = stack_a->top_index + 1;
-	while (--index > 0)
+	index = stack_a->top_index;
+	a_score = 1;
+	while (--index >= 0)
 	{
-		elem->score_a += score_add;
-		if (index == stack_a->top_index / 2)
-		{
-			score_add = -1;
-			elem->score_a += score_add;
-			elem->is_reversed_a = TRUE;
-		}
-		if (stack_a->array[index].value < elem->value && \
-			stack_a->array[index - 1].value > elem->value)
-		{
-			if (stack_a->top_index % 2 && elem->is_reversed_a == TRUE)
-				elem->score_a--;
-			return ;
-		}
+		if (stack_a->array[index].value > elem->value && \
+			stack_a->array[index + 1].value < elem->value)
+			break ;
+		a_score++;
 	}
+	if (arr_size - a_score < a_score)
+	{
+		elem->score_a = arr_size - a_score;
+		elem->is_reversed_a = TRUE;
+	}
+	else
+		elem->score_a = a_score;
 }
 
 static void	add_b_score(t_stack *stack_b, int64_t index, t_scored *elem)

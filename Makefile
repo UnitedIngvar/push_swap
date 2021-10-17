@@ -1,5 +1,5 @@
 SRC			=	${OPERATION} ${PARS} \
-				${SORT} ${CORE}
+				${SORT} ${CORE} ${DEBUG}
 
 PARS		=	src/parser/ft_atoi.c src/parser/parser_utils.c \
 				src/parser/parser.c
@@ -13,6 +13,8 @@ OPERATION	=	src/operations/operations_A.c src/operations/operations_B.c \
 
 CORE		=	src/core/push_swap.c src/core/program_finish.c \
 				src/core/rollback_context.c src/core/safe_malloc.c
+
+DEBUG		=	src/debug
 
 DEBUG		=	src/debug.c
 
