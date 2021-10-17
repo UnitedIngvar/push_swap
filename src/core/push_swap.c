@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftassada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:48:54 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 02:58:35 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 11:30:07 by ftassada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static t_stack	*init_stack_b(int64_t size)
 	stack_b = safe_malloc(sizeof(*stack_b));
 	stack_b->array = safe_malloc(sizeof(*(stack_b->array)) * size);
 	stack_b->top_index = EMPTY;
+	stack_b->length = size;
 	index = 0;
 	while (index < size)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftassada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:49:00 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 02:58:46 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 10:58:12 by ftassada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "rollback_context.h"
-
+#include <stdio.h>
 /*Predifine section*/
 
 //Boolean

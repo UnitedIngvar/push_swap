@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   full_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcrakeha <hcrakeha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftassada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 14:47:59 by hcrakeha          #+#    #+#             */
-/*   Updated: 2021/10/17 03:01:18 by hcrakeha         ###   ########.fr       */
+/*   Updated: 2021/10/17 11:20:50 by ftassada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,8 @@ static void	push_to_b(t_stack *stack_a, t_stack *stack_b)
 		}
 		else
 			stack_ra(stack_a);
-		printf("A top index:	%lli\n", stack_a->top_index);
-		printf("B top index:	%lli\n", stack_b->top_index);
-		printf("Stack A:	");
-		print_stack(stack_a, 0);
-		printf("Stack B:	");
-		print_stack(stack_b, 0);
+		print_stack(stack_a, "Stack A:	");
+		print_stack(stack_b, "Stack B:	");
 	}
 	printf("finished pushing to B\n");
 }

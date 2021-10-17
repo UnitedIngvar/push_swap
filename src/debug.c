@@ -4,6 +4,8 @@ void	print_stack(t_stack *stack, char *stack_str)
 {
 	int	i;
 
+	printf("%s\n", stack_str);
+	printf("\ntop index - %lld\n", stack->top_index);
 	printf("%s", stack_str);
 	i = stack->top_index;
 	while (i >= 0)
